@@ -1,0 +1,56 @@
+{
+	"name": "Ubuntu",
+	// "image": "mcr.microsoft.com/devcontainers/base:jammy",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    
+    "features": {
+        "ghcr.io/devcontainers/features/aws-cli:1": {},
+        "ghcr.io/jsburckhardt/devcontainer-features/ruff:1": {},
+        "ghcr.io/va-h/devcontainers-features/uv:1": {},
+		"ghcr.io/devcontainers-extra/features/neofetch:1": {},
+		"ghcr.io/robbert229/devcontainer-features/postgresql-client:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    },
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+				"ms-azuretools.vscode-docker",
+				"donjayamanne.python-extension-pack",
+				"esbenp.prettier-vscode",
+				"mintlify.document",
+				"ms-python.black-formatter",
+				"intellsmi.comment-translate",
+				"cweijan.vscode-database-client2",
+				"cweijan.dbclient-jdbc",
+				"monosans.djlint",
+				"mhutchie.git-graph",
+				"donjayamanne.githistory",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"bierner.github-markdown-preview",
+				"codezombiech.gitignore",
+				"eamodio.gitlens",
+				"hancel.google-translate",
+				"VisualStudioExptTeam.vscodeintellicode",
+				"yzhang.markdown-all-in-one",
+				"bierner.markdown-checkbox",
+				"bierner.markdown-emoji",
+				"bierner.markdown-footnotes",
+				"bierner.markdown-preview-github-styles",
+				"bierner.markdown-mermaid",
+				"bierner.markdown-yaml-preamble",
+				"GrapeCity.gc-excelviewer",
+				"tamasfe.even-better-toml",
+				"GitHub.vscode-pull-request-github"
+			]
+        }
+    },
+
+    "mounts": [
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.aws/,target=/home/vscode/.aws/,type=bind,consistency=cached"
+    ]
+}

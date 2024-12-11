@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+    tty: true
+    networks:
+      - default
+  
+  aspdb:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: aspdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - aspdb:/var/lib/postgresql/data
+    networks:
+      - default
+
+volumes:
+  aspdb:
+
+networks:
+  default:
